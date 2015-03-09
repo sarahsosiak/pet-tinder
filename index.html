@@ -8,7 +8,7 @@ $.getJSON('http://api.petfinder.com/pet.find?format=json&count=10&location=94101
 	displayGallery(items);
 
 	console.log(data);
-	
+
 })
 
 // Display pet gallery
@@ -16,10 +16,11 @@ function displayGallery(pets) {
 	
 	// Iterate through all pets
 	pets.forEach(function(pets) {
-		var url = pets.media.photos.photo[0].$t;
+		var url = pets.media.photos.photo[2].$t;
 		var image = document.createElement('img');
 		image.src = url;
 		document.body.appendChild(image);
+		console.log(url);
 	
 	});
 
