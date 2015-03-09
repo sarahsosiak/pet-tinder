@@ -1,0 +1,27 @@
+<script src="zepto.min.js"></script>
+
+<script>
+
+// Get pet data
+$.getJSON('http://api.petfinder.com/pet.find?format=json&count=10&location=94101&key=c0d92038235614877209f3b0487d13c5&callback=?', function (data) {
+	var items = data.petfinder.pets.pet;
+	displayGallery(items);
+
+	console.log(data);
+})
+
+// Display pet gallery
+function displayGallery(pets) {
+	
+	// Iterate through all pets
+	pets.forEach(function(pets) {
+		var url = pets.media.photos.photo[0].$t;
+		var image = document.createElement('img');
+		image.src = url;
+		document.body.appendChild(image);
+	
+	});
+
+};
+
+</script>
