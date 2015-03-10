@@ -94,29 +94,10 @@ ContentGalleryPrototype.drawThumbnailsFromArray = function(thumbnails) {
 
     newThumbnail.id = item.id;
     newThumbnail.className = 'thumbnail';
-
-    console.log(item.media.photos.photo[2].$t);
-
     newThumbnail.style.backgroundImage = 'url(' + item.media.photos.photo[2].$t + ')';
     this.thumbnailPanel.appendChild(newThumbnail);
   }.bind(this));
 };
-
-// ContentGalleryPrototype.drawThumbnailsFromArray = function(thumbnails) {
-//   this.thumbnailPanel.innerHTML = '';
-
-//   thumbnails.forEach(function(item) {
-//   var newThumbnail = document.createElement('div');
-//     newThumbnail.addEventListener('tap', function(e) {
-//       $(this).trigger('thumbnail-tap', e.target.id);
-//     }.bind(this));
-
-//     newThumbnail.id = item.id;
-//     newThumbnail.className = 'thumbnail';
-//     newThumbnail.style.backgroundImage = 'url(' + item.thumbnail + ')';
-//     this.thumbnailPanel.appendChild(newThumbnail);
-//   }.bind(this));
-// };
 
 ContentGalleryPrototype.setDrawerBackground = function(src) {
   this.drawerPanel.style.backgroundImage = 'url(' + src + ')';
