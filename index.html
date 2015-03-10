@@ -1,29 +1,60 @@
-<script src="zepto.min.js"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+	  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+	  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="pet-tinder.css">
+  </head>
+  <body>
+    
+    <content-gallery id="myGallery">
+      <div id="main-content">
+        <div id="pet-name"></div>
+        <div id="pet-description" class="scrollable"></div>
 
-<script>
+        <div id="shelter-info">
+          <div id="shelter-name"></div>
+        </div>
+      </div>
+    </content-gallery>
+    
+    <div id="header-bar"></div>
 
-// Get pet data
-$.getJSON('http://api.petfinder.com/pet.find?format=json&count=10&location=94101&key=c0d92038235614877209f3b0487d13c5&callback=?', function (data) {
-	var items = data.petfinder.pets.pet;
-	displayGallery(items);
+    <!-- Load scripts. -->
+    <script src="CustomElements.min.js"></script>
+    <script src="zepto.min.js"></script>
+    <script src="contentgallery.js"></script>
+    <script src="pet-tinder.js"></script>
+  </body>
+</html>
 
-	console.log(items);
 
-})
 
-// Display pet gallery
-function displayGallery(pets) {
+// <script>
+
+// // Get pet data
+// $.getJSON('http://api.petfinder.com/pet.find?format=json&count=10&location=94101&key=c0d92038235614877209f3b0487d13c5&callback=?', function (data) {
+// 	var items = data.petfinder.pets.pet;
+// 	displayGallery(items);
+
+// 	console.log(items);
+
+// })
+
+// // Display pet gallery
+// function displayGallery(pets) {
 	
-	// Iterate through all pets
-	pets.forEach(function(pets) {
-		var url = pets.media.photos.photo[2].$t;
-		var image = document.createElement('img');
-		image.src = url;
-		document.body.appendChild(image);
-		console.log(url);
+// 	// Iterate through all pets
+// 	pets.forEach(function(pets) {
+// 		var url = pets.media.photos.photo[2].$t;
+// 		var image = document.createElement('img');
+// 		image.src = url;
+// 		document.body.appendChild(image);
+// 		console.log(url);
 	
-	});
+// 	});
 
-};
+// };
 
-</script>
+// </script>
